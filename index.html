@@ -1,97 +1,122 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>IHTC 2024: Context and Analysis</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            max-width: 900px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IHTC 2024 Analysis</title>
 
-        h1 {
-            font-size: 28px;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    line-height: 1.6;
+}
 
-        h2 {
-            margin-top: 50px;
-        }
+h1, h2 {
+    text-align: center;
+}
 
-        p {
-            text-align: justify;
-        }
+.section {
+    margin-top: 50px;
+}
 
-        .figure {
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
+img {
+    width: 100%;
+    max-width: 900px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 6px;
+}
 
-        .figure img {
-            width: 100%;
-        }
+.caption {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 30px;
+}
+</style>
 
-        .caption {
-            font-size: 14px;
-            text-align: center;
-            margin-top: 5px;
-        }
-
-        .row {
-            display: flex;
-            gap: 20px;
-        }
-
-        .row img {
-            width: 48%;
-        }
-    </style>
 </head>
-
 <body>
 
-<h1>The Integrated Healthcare Timetabling Competition 2024: Context and Analysis</h1>
+<h1>IHTC 2024: Instance Space Analysis</h1>
 
 <p>
-This page provides supporting material for the paper, including instance analysis,
-visualizations, and additional insights on the IHTC 2024 benchmark.
+This page presents the main results of the Instance Space Analysis conducted on the IHTC 2024 instances.
 </p>
 
----
+<!-- ================= DATASET COMPARISON ================= -->
+<div class="section">
+<h2>Dataset Comparison</h2>
 
-<h2>Instance Space Analysis</h2>
+<img src="images/Confronto_dataset_.png">
+<div class="caption">Comparison of dataset characteristics across different instance groups.</div>
 
-<div class="figure">
-    <img src="images/isa_projection.png">
-    <div class="caption">
-        Figure 1: Instance Space projection using PILOT.
-    </div>
+<img src="images/best_per_instance.png">
+<div class="caption">Best algorithm performance per instance.</div>
+
 </div>
 
----
+<!-- ================= ISA SPACE ================= -->
+<div class="section">
+<h2>Instance Space Projection</h2>
 
-<h2>Algorithm Performance</h2>
+<img src="images/z1z2_separazione_.png">
+<div class="caption">Projection of instances in the Z1–Z2 space with decision boundaries.</div>
 
-<div class="row">
-    <div>
-        <img src="images/performance1.png">
-        <div class="caption">Figure 2: Algorithm footprint</div>
-    </div>
-    <div>
-        <img src="images/performance2.png">
-        <div class="caption">Figure 3: Best performance regions</div>
-    </div>
+<img src="images/lollipop_tre_teste.png">
+<div class="caption">Instance space colored according to resource usage.</div>
+
 </div>
 
----
+<!-- ================= FEATURE ANALYSIS ================= -->
+<div class="section">
+<h2>Feature Analysis</h2>
 
-<h2>Resource Utilization</h2>
+<img src="images/incompatible_1.png">
+<div class="caption">Distribution of key features across instances.</div>
 
-<div class="figure">
-    <img src="images/resources.png">
-    <div class="caption">
-        Figure 4: Resource usage across instances.
-    </div>
+<img src="images/OR_av_1.png">
+<div class="caption">Operating room availability patterns.</div>
+
+<img src="images/SG_av_1.png">
+<div class="caption">Surgeon availability patterns.</div>
+
+</div>
+
+<!-- ================= CASE STUDIES ================= -->
+<div class="section">
+<h2>Case Studies</h2>
+
+<img src="images/i01.jpg">
+<div class="caption">Instance i01 analysis.</div>
+
+<img src="images/i07.jpg">
+<div class="caption">Instance i07 analysis.</div>
+
+<img src="images/i12_.png">
+<div class="caption">Instance i12 analysis.</div>
+
+<img src="images/i15.jpg">
+<div class="caption">Instance i15 analysis.</div>
+
+<img src="images/i21.jpg">
+<div class="caption">Instance i21 analysis.</div>
+
+</div>
+
+<!-- ================= SPECIFIC INSTANCES ================= -->
+<div class="section">
+<h2>Detailed Instances</h2>
+
+<img src="images/m10_.jpg">
+<div class="caption">Instance m10 detailed breakdown.</div>
+
+<img src="images/m15_.png">
+<div class="caption">Instance m15 detailed breakdown.</div>
+
 </div>
 
 </body>
