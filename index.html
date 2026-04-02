@@ -149,6 +149,13 @@ function updateWeightViolationPlot() {
     const frame = document.getElementById("weightViolationFrame");
     frame.src = "./peso_delta_rel_" + selected + ".html";
 }
+    
+function updateNurseOverloadPlot() {
+    const selected = document.getElementById("nurseOverloadSelector").value;
+    const frame = document.getElementById("nurseOverloadFrame");
+    frame.src = "./combined_" + selected + ".html";
+}   
+    
 </script>
 
 
@@ -184,8 +191,8 @@ patterns, the effect of weighting choices, and the role of critical resource sat
 
 <div class="tab-bar">
     <button class="tab-button active" data-tab="tab-isa" onclick="openTab('tab-isa')">Instance Space Analysis</button>
-    <button class="tab-button" data-tab="tab-ideal" onclick="openTab('tab-ideal')">Ideal Bounds and Weighting Effects</button>
     <button class="tab-button" data-tab="tab-saturation" onclick="openTab('tab-saturation')">Critical Resource Saturation Analysis</button>
+    <button class="tab-button" data-tab="tab-ideal" onclick="openTab('tab-ideal')">Ideal Bounds and Weighting Effects</button>
 </div>
 
 <div id="tab-isa" class="tab-content active">
@@ -435,12 +442,76 @@ patterns, the effect of weighting choices, and the role of critical resource sat
 
     <div class="section">
 
-        <h2>Critical Resource Saturation Analysis</h2>
+        <h2>Critical Resource Saturation Analysis (Section 4.3, Fig. 7)</h2>
 
         <p class="section-text">
-        This section will collect the interactive material related to the saturation of critical resources and its impact 
-        on admission decisions and overall solution quality. The corresponding figures will be added here.
+        This section illustrates the limitations of representing nurse-related requirements only as soft constraints. Select an instance from the menu below to examine how objective-function weights, violations, and costs relate to the resulting distribution of nurse overload.
         </p>
+
+        <select id="nurseOverloadSelector" onchange="updateNurseOverloadPlot()">
+            <option value="i01">i01</option>
+            <option value="i02">i02</option>
+            <option value="i03">i03</option>
+            <option value="i04">i04</option>
+            <option value="i05">i05</option>
+            <option value="i06">i06</option>
+            <option value="i07">i07</option>
+            <option value="i08">i08</option>
+            <option value="i09">i09</option>
+            <option value="i10">i10</option>
+            <option value="i11">i11</option>
+            <option value="i12">i12</option>
+            <option value="i13">i13</option>
+            <option value="i14">i14</option>
+            <option value="i15">i15</option>
+            <option value="i16">i16</option>
+            <option value="i17">i17</option>
+            <option value="i18">i18</option>
+            <option value="i19">i19</option>
+            <option value="i20">i20</option>
+            <option value="i21">i21</option>
+            <option value="i22">i22</option>
+            <option value="i23">i23</option>
+            <option value="i24">i24</option>
+            <option value="i25">i25</option>
+            <option value="i26">i26</option>
+            <option value="i27">i27</option>
+            <option value="i28">i28</option>
+            <option value="i29">i29</option>
+            <option value="i30">i30</option>
+            <option value="m01">m01</option>
+            <option value="m02">m02</option>
+            <option value="m03">m03</option>
+            <option value="m04">m04</option>
+            <option value="m05">m05</option>
+            <option value="m06">m06</option>
+            <option value="m07">m07</option>
+            <option value="m08">m08</option>
+            <option value="m09">m09</option>
+            <option value="m10">m10</option>
+            <option value="m11">m11</option>
+            <option value="m12">m12</option>
+            <option value="m13">m13</option>
+            <option value="m14">m14</option>
+            <option value="m15">m15</option>
+            <option value="m16">m16</option>
+            <option value="m17">m17</option>
+            <option value="m18">m18</option>
+            <option value="m19">m19</option>
+            <option value="m20">m20</option>
+            <option value="m21">m21</option>
+            <option value="m22">m22</option>
+            <option value="m23">m23</option>
+            <option value="m24">m24</option>
+            <option value="m25">m25</option>
+            <option value="m26">m26</option>
+            <option value="m27">m27</option>
+            <option value="m28">m28</option>
+            <option value="m29">m29</option>
+            <option value="m30">m30</option>
+        </select>
+
+        <iframe id="nurseOverloadFrame" src="./combined_i01.html?v=1"></iframe>
 
     </div>
 
