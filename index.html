@@ -63,7 +63,7 @@ h2 {
     color: #333;
 }
 
-    select {
+select {
     padding: 8px 12px;
     font-size: 15px;
     border: 1px solid #ccc;
@@ -74,10 +74,12 @@ h2 {
 
 iframe {
     width: 100%;
-    height: 700px;
+    min-height: 500px;
     border: none;
     border-radius: 6px;
     margin-top: 20px;
+    display: block;
+    overflow: hidden;
 }
 
 .caption {
@@ -125,8 +127,35 @@ iframe {
 }
 </style>
 
-
 <script>
+function resizeIframe(iframe) {
+    try {
+        const doc = iframe.contentWindow.document;
+        const newHeight = Math.max(
+            doc.body.scrollHeight,
+            doc.documentElement.scrollHeight
+        );
+        iframe.style.height = newHeight + "px";
+    } catch (e) {
+        console.log("Impossibile ridimensionare iframe:", e);
+    }
+}
+
+function resizeAllIframes() {
+    document.querySelectorAll("iframe").forEach(function(iframe) {
+        resizeIframe(iframe);
+    });
+}
+
+function attachIframeResize(iframe) {
+    iframe.onload = function() {
+        resizeIframe(iframe);
+        setTimeout(function() {
+            resizeIframe(iframe);
+        }, 300);
+    };
+}
+
 function openTab(tabId) {
     const tabs = document.querySelectorAll(".tab-content");
     const buttons = document.querySelectorAll(".tab-button");
@@ -136,6 +165,8 @@ function openTab(tabId) {
 
     document.getElementById(tabId).classList.add("active");
     document.querySelector('[data-tab="' + tabId + '"]').classList.add("active");
+
+    setTimeout(resizeAllIframes, 100);
 }
 
 function updateInstancePlot() {
@@ -154,10 +185,18 @@ function updateNurseOverloadPlot() {
     const selected = document.getElementById("nurseOverloadSelector").value;
     const frame = document.getElementById("nurseOverloadFrame");
     frame.src = "./combined_" + selected + ".html";
-}   
-    
-</script>
+}
 
+window.addEventListener("load", function() {
+    const iframes = document.querySelectorAll("iframe");
+    iframes.forEach(function(iframe) {
+        attachIframeResize(iframe);
+    });
+
+    setTimeout(resizeAllIframes, 300);
+    setTimeout(resizeAllIframes, 1000);
+});
+</script>
 
 </head>
 <body>
@@ -367,7 +406,7 @@ patterns, the effect of weighting choices, and the role of critical resource sat
 
     <p class="section-text">
     This section explores the relationship between the relative weights assigned to each criterion in the objective function and the corresponding share of pure violations. Select an instance from the menu below to examine how weights influence violation patterns.
-    <br><br>
+    </p>
 
     <select id="weightViolationSelector" onchange="updateWeightViolationPlot()">
         <option value="i01">i01</option>
