@@ -241,19 +241,12 @@ patterns, the effect of weighting choices, and the role of critical resource sat
 
         <h2>Instance Space Projection (Section 4.1, Fig. 3)</h2>
 
-        <p class="section-text">
-        The projection of instances in the (Z1, Z2) space is obtained through dimensionality 
-        reduction via PILOT, and highlights the relationship between instance characteristics 
-        and algorithmic performance. The separating boundary between easy and hard instances 
-        is approximated through logistic regression, allowing a clearer interpretation of 
-        instance difficulty across the space.
+       <p class="section-text">
+    The projection onto the two-dimensional instance space is obtained through a linear transformation of a subset of the original features. The six features identified by MATILDA as most correlated with algorithm performance, together with the corresponding projection matrix, are reported below.
         </p>
 
 <div style="margin: 30px 0 35px 0;">
 
-<p class="section-text">
-The six features identified by MATILDA as most correlated with algorithm performance, together with the corresponding projection matrix, are reported in Equation (1).
-</p>
 
 <div style="text-align: center; font-size: 16px; margin: 20px 0; overflow-x: auto;">
 \[
@@ -281,12 +274,11 @@ Z_2
 \]
 </div>
 
-<div class="caption">
-Equation below defines the projection of the instances into the two-dimensional space. The coefficients indicate how each selected feature contributes to the construction of the coordinates \(Z_1\) and \(Z_2\).
 </div>
 
-</div>
-
+        <p class="section-text">
+The figure below shows the projection of the instances in the \((Z_1, Z_2)\) space. The separating boundary between easy and hard instances is approximated through logistic regression, allowing a clearer interpretation of instance difficulty across the projected space.
+</p>
         <iframe src="./z1z2_separazione_interattivo.html?v=5"></iframe>
 
     </div>
