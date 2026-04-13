@@ -251,7 +251,7 @@ patterns, the effect of weighting choices, and the role of critical resource sat
         <h2>Instance Space Projection (Section 4.1, Equation 1 and Fig. 3)</h2>
 
     <p class="section-text">
-    The projection onto the two-dimensional instance space is obtained using PILOT (Projecting Instances with Linearly Observable Trends), which maps high-dimensional feature data into a two-dimensional space by identifying projection directions that highlight trends in both instance features and algorithm performance. The six features identified by MATILDA as most correlated with algorithm performance, together with the corresponding projection matrix, are reported below.
+    The projection onto the two-dimensional instance space is obtained using PILOT (Projecting Instances with Linearly Observable Trends), which maps high-dimensional feature data into a two-dimensional space by identifying projection directions that highlight trends in both instance features and algorithm performance. The six features identified by MATILDA as most relevant to explaining algorithm performance, together with the corresponding projection matrix, are reported below.
     </p>
 
 <div style="margin: 30px 0 35px 0;">
@@ -297,8 +297,8 @@ The figure below shows the projection of the instances in the \((Z_1, Z_2)\) spa
         <h2>Feature Distributions in the Instance Space (Section 4.1, Fig. 4)</h2>
 
         <p class="section-text">
-        In the figures below, it is possible to observe the trends over the instances of three selected features: (a) median number of incompatible rooms per patient, (b) total operating theatre availability and (c) total surgeon availability. These features are among the most relevant ones identified by MATILDA as strongly associated with algorithm performance. For the remaining features highlighted during the dimensionality reduction process, no simple or immediately interpretable relationships could be observed within the instance space.
-        <br><br>
+        In the figures below, it is possible to observe the trends over the instances of three selected features: (a) median number of incompatible rooms per patient, (b) total operating theatre availability and (c) total surgeon availability. These features are among the most relevant ones identified by MATILDA. For the remaining features highlighted during the dimensionality reduction process, no simple or immediately interpretable relationships emerge within the instance space.
+<br><br>
         In each plot, all instances are projected onto the two-dimensional space defined by the coordinates (Z1, Z2). 
         The values of the considered features are encoded through a color scale, ranging from lower values (in purple) 
         to higher values (in yellow).
