@@ -309,7 +309,7 @@ Z_2
 </div>
 
         <p class="section-text">
-The figure below shows the projection of the instances in the \((Z_1, Z_2)\) space. The separating boundary between easy and hard instances is approximated through logistic regression, allowing a clearer interpretation of instance difficulty across the projected space.
+The figure below shows the projection of the instances in the space. The separating boundary between easy and hard instances is approximated through logistic regression, allowing a clearer interpretation of instance difficulty across the projected space. The projection also includes the instances from the Small and Long horizon datasets released after the end of the competition. These instances are displayed in the same space but are not classified as easy or hard, since no algorithm performance data from the competition is available for them.
 </p>
         <iframe src="./z1z2_separazione_interattivo.html?v=5"></iframe>
 
@@ -321,10 +321,9 @@ The figure below shows the projection of the instances in the \((Z_1, Z_2)\) spa
 
         <p class="section-text">
         In the figures below, it is possible to observe the trends over the instances of three selected features: (a) median number of incompatible rooms per patient, (b) total operating theatre availability and (c) total surgeon availability. These features are among the most relevant ones identified by MATILDA. For the remaining features highlighted during the dimensionality reduction process, no simple or immediately interpretable relationships emerge within the instance space.
-<br><br>
         In each plot, all instances are projected onto the two-dimensional space defined by the coordinates (Z1, Z2). 
         The values of the considered features are encoded through a color scale, ranging from lower values (in purple) 
-        to higher values (in yellow).
+        to higher values (in yellow). The feature values are also computed and reported for the instances belonging to the datasets released at the end of the competition.
         </p>
 
         <div class="dataset-title">(a) Median number of incompatible rooms per patient across the instance space</div>
