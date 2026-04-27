@@ -138,6 +138,18 @@ margin-bottom: 10px;
 .tab-content.active {
     display: block;
 }
+
+.instance-block {
+    display: none;
+}
+
+.instance-block.active {
+    display: block;
+}
+
+.instance-block.all-visible {
+    display: block;
+}
 </style>
 
 <script>
@@ -188,16 +200,23 @@ function updateInstancePlot() {
     frame.src = "./barre_interattive_" + selected + ".html";
 }
 
-function updateWeightViolationPlot() {
-    const selected = document.getElementById("weightViolationSelector").value;
-    const frame = document.getElementById("weightViolationFrame");
-    frame.src = "./peso_delta_rel_" + selected + ".html";
-}
-    
-function updateNurseOverloadPlot() {
-    const selected = document.getElementById("nurseOverloadSelector").value;
-    const frame = document.getElementById("nurseOverloadFrame");
-    frame.src = "./combined_" + selected + ".html";
+function updateInstanceBlocks(selectorId, containerId) {
+    const selected = document.getElementById(selectorId).value;
+    const blocks = document.querySelectorAll("#" + containerId + " .instance-block");
+
+    blocks.forEach(function(block) {
+        block.classList.remove("active");
+        block.classList.remove("all-visible");
+
+        if (selected === "all") {
+            block.classList.add("all-visible");
+        } else if (block.dataset.instance === selected) {
+            block.classList.add("active");
+        }
+    });
+
+    setTimeout(resizeAllIframes, 100);
+    setTimeout(resizeAllIframes, 500);
 }
 
 window.addEventListener("load", function() {
@@ -370,7 +389,8 @@ The figure below shows the projection of the instances in the \((Z_1, Z_2)\) spa
         This section illustrates the values of the soft constraints for the best found solution. The three upper panels report the weights characterizing an instance, the number of violations for each soft constraint, and the corresponding costs, computed as the product of weights and violations. The bottom panel shows the distribution of nurse overload values, with bars indicating the number of nurses at each overload level.
         </p>
 
-        <select id="nurseOverloadSelector" onchange="updateNurseOverloadPlot()">
+        <select id="nurseOverloadSelector" onchange="updateInstanceBlocks('nurseOverloadSelector', 'nurseOverloadContainer')">
+            <option value="all">All instances</option>
             <option value="i01">i01</option>
             <option value="i02">i02</option>
             <option value="i03">i03</option>
@@ -433,7 +453,309 @@ The figure below shows the projection of the instances in the \((Z_1, Z_2)\) spa
             <option value="m30">m30</option>
         </select>
 
-        <iframe id="nurseOverloadFrame" src="./combined_i01.html?v=1"></iframe>
+        <div id="nurseOverloadContainer">
+        
+        <div class="instance-block active" data-instance="i01">
+        <div class="dataset-title">i01</div>
+        <iframe src="./combined_i01.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i02">
+        <div class="dataset-title">i02</div>
+        <iframe src="./combined_i02.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i03">
+        <div class="dataset-title">i03</div>
+        <iframe src="./combined_i03.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i04">
+        <div class="dataset-title">i04</div>
+        <iframe src="./combined_i04.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i05">
+        <div class="dataset-title">i05</div>
+        <iframe src="./combined_i05.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i06">
+        <div class="dataset-title">i06</div>
+        <iframe src="./combined_i06.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i07">
+        <div class="dataset-title">i07</div>
+        <iframe src="./combined_i07.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i08">
+        <div class="dataset-title">i08</div>
+        <iframe src="./combined_i08.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i09">
+        <div class="dataset-title">i09</div>
+        <iframe src="./combined_i09.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i10">
+        <div class="dataset-title">i10</div>
+        <iframe src="./combined_i10.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i11">
+        <div class="dataset-title">i11</div>
+        <iframe src="./combined_i11.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i12">
+        <div class="dataset-title">i12</div>
+        <iframe src="./combined_i12.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i13">
+        <div class="dataset-title">i13</div>
+        <iframe src="./combined_i13.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i14">
+        <div class="dataset-title">i14</div>
+        <iframe src="./combined_i14.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i15">
+        <div class="dataset-title">i15</div>
+        <iframe src="./combined_i15.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i16">
+        <div class="dataset-title">i16</div>
+        <iframe src="./combined_i16.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i17">
+        <div class="dataset-title">i17</div>
+        <iframe src="./combined_i17.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i18">
+        <div class="dataset-title">i18</div>
+        <iframe src="./combined_i18.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i19">
+        <div class="dataset-title">i19</div>
+        <iframe src="./combined_i19.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i20">
+        <div class="dataset-title">i20</div>
+        <iframe src="./combined_i20.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i21">
+        <div class="dataset-title">i21</div>
+        <iframe src="./combined_i21.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i22">
+        <div class="dataset-title">i22</div>
+        <iframe src="./combined_i22.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i23">
+        <div class="dataset-title">i23</div>
+        <iframe src="./combined_i23.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i24">
+        <div class="dataset-title">i24</div>
+        <iframe src="./combined_i24.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i25">
+        <div class="dataset-title">i25</div>
+        <iframe src="./combined_i25.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i26">
+        <div class="dataset-title">i26</div>
+        <iframe src="./combined_i26.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i27">
+        <div class="dataset-title">i27</div>
+        <iframe src="./combined_i27.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i28">
+        <div class="dataset-title">i28</div>
+        <iframe src="./combined_i28.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i29">
+        <div class="dataset-title">i29</div>
+        <iframe src="./combined_i29.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="i30">
+        <div class="dataset-title">i30</div>
+        <iframe src="./combined_i30.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m01">
+        <div class="dataset-title">m01</div>
+        <iframe src="./combined_m01.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m02">
+        <div class="dataset-title">m02</div>
+        <iframe src="./combined_m02.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m03">
+        <div class="dataset-title">m03</div>
+        <iframe src="./combined_m03.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m04">
+        <div class="dataset-title">m04</div>
+        <iframe src="./combined_m04.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m05">
+        <div class="dataset-title">m05</div>
+        <iframe src="./combined_m05.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m06">
+        <div class="dataset-title">m06</div>
+        <iframe src="./combined_m06.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m07">
+        <div class="dataset-title">m07</div>
+        <iframe src="./combined_m07.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m08">
+        <div class="dataset-title">m08</div>
+        <iframe src="./combined_m08.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m09">
+        <div class="dataset-title">m09</div>
+        <iframe src="./combined_m09.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m10">
+        <div class="dataset-title">m10</div>
+        <iframe src="./combined_m10.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m11">
+        <div class="dataset-title">m11</div>
+        <iframe src="./combined_m11.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m12">
+        <div class="dataset-title">m12</div>
+        <iframe src="./combined_m12.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m13">
+        <div class="dataset-title">m13</div>
+        <iframe src="./combined_m13.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m14">
+        <div class="dataset-title">m14</div>
+        <iframe src="./combined_m14.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m15">
+        <div class="dataset-title">m15</div>
+        <iframe src="./combined_m15.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m16">
+        <div class="dataset-title">m16</div>
+        <iframe src="./combined_m16.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m17">
+        <div class="dataset-title">m17</div>
+        <iframe src="./combined_m17.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m18">
+        <div class="dataset-title">m18</div>
+        <iframe src="./combined_m18.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m19">
+        <div class="dataset-title">m19</div>
+        <iframe src="./combined_m19.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m20">
+        <div class="dataset-title">m20</div>
+        <iframe src="./combined_m20.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m21">
+        <div class="dataset-title">m21</div>
+        <iframe src="./combined_m21.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m22">
+        <div class="dataset-title">m22</div>
+        <iframe src="./combined_m22.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m23">
+        <div class="dataset-title">m23</div>
+        <iframe src="./combined_m23.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m24">
+        <div class="dataset-title">m24</div>
+        <iframe src="./combined_m24.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m25">
+        <div class="dataset-title">m25</div>
+        <iframe src="./combined_m25.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m26">
+        <div class="dataset-title">m26</div>
+        <iframe src="./combined_m26.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m27">
+        <div class="dataset-title">m27</div>
+        <iframe src="./combined_m27.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m28">
+        <div class="dataset-title">m28</div>
+        <iframe src="./combined_m28.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m29">
+        <div class="dataset-title">m29</div>
+        <iframe src="./combined_m29.html?v=1"></iframe>
+        </div>
+        
+        <div class="instance-block" data-instance="m30">
+        <div class="dataset-title">m30</div>
+        <iframe src="./combined_m30.html?v=1"></iframe>
+        </div>
+        
+        </div>
 
     </div>
 
@@ -449,185 +771,373 @@ The figure below shows the projection of the instances in the \((Z_1, Z_2)\) spa
         This section reports the comparison between ideal objective values, lexicographic bounds, and the best solutions obtained during the competition under the weighted-sum objective. Select an instance from the menu below to explore the corresponding results.
         </p>
 
+<select id="idealSelector" onchange="updateInstanceBlocks('idealSelector', 'idealContainer')">
+            <option value="all">All instances</option>
+            <option value="i01">i01</option>
+            <option value="i02">i02</option>
+            <option value="i03">i03</option>
+            <option value="i04">i04</option>
+            <option value="i05">i05</option>
+            <option value="i06">i06</option>
+            <option value="i07">i07</option>
+            <option value="i08">i08</option>
+            <option value="i09">i09</option>
+            <option value="i10">i10</option>
+            <option value="i11">i11</option>
+            <option value="i12">i12</option>
+            <option value="i13">i13</option>
+            <option value="i14">i14</option>
+            <option value="i15">i15</option>
+            <option value="i16">i16</option>
+            <option value="i17">i17</option>
+            <option value="i18">i18</option>
+            <option value="i19">i19</option>
+            <option value="i20">i20</option>
+            <option value="i21">i21</option>
+            <option value="i22">i22</option>
+            <option value="i23">i23</option>
+            <option value="i24">i24</option>
+            <option value="i25">i25</option>
+            <option value="i26">i26</option>
+            <option value="i27">i27</option>
+            <option value="i28">i28</option>
+            <option value="i29">i29</option>
+            <option value="i30">i30</option>
+            <option value="m01">m01</option>
+            <option value="m02">m02</option>
+            <option value="m03">m03</option>
+            <option value="m04">m04</option>
+            <option value="m05">m05</option>
+            <option value="m06">m06</option>
+            <option value="m07">m07</option>
+            <option value="m08">m08</option>
+            <option value="m09">m09</option>
+            <option value="m10">m10</option>
+            <option value="m11">m11</option>
+            <option value="m12">m12</option>
+            <option value="m13">m13</option>
+            <option value="m14">m14</option>
+            <option value="m15">m15</option>
+            <option value="m16">m16</option>
+            <option value="m17">m17</option>
+            <option value="m18">m18</option>
+            <option value="m19">m19</option>
+            <option value="m20">m20</option>
+            <option value="m21">m21</option>
+            <option value="m22">m22</option>
+            <option value="m23">m23</option>
+            <option value="m24">m24</option>
+            <option value="m25">m25</option>
+            <option value="m26">m26</option>
+            <option value="m27">m27</option>
+            <option value="m28">m28</option>
+            <option value="m29">m29</option>
+            <option value="m30">m30</option>
+        </select>
+
+        <div id="idealContainer">
+
+<div class="instance-block all-visible" data-instance="i01">
 <div class="dataset-title">i01</div>
 <iframe src="./barre_interattive_i01.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i02">
 <div class="dataset-title">i02</div>
 <iframe src="./barre_interattive_i02.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i03">
 <div class="dataset-title">i03</div>
 <iframe src="./barre_interattive_i03.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i04">
 <div class="dataset-title">i04</div>
 <iframe src="./barre_interattive_i04.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i05">
 <div class="dataset-title">i05</div>
 <iframe src="./barre_interattive_i05.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i06">
 <div class="dataset-title">i06</div>
 <iframe src="./barre_interattive_i06.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i07">
 <div class="dataset-title">i07</div>
 <iframe src="./barre_interattive_i07.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i08">
 <div class="dataset-title">i08</div>
 <iframe src="./barre_interattive_i08.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i09">
 <div class="dataset-title">i09</div>
 <iframe src="./barre_interattive_i09.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i10">
 <div class="dataset-title">i10</div>
 <iframe src="./barre_interattive_i10.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i11">
 <div class="dataset-title">i11</div>
 <iframe src="./barre_interattive_i11.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i12">
 <div class="dataset-title">i12</div>
 <iframe src="./barre_interattive_i12.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i13">
 <div class="dataset-title">i13</div>
 <iframe src="./barre_interattive_i13.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i14">
 <div class="dataset-title">i14</div>
 <iframe src="./barre_interattive_i14.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i15">
 <div class="dataset-title">i15</div>
 <iframe src="./barre_interattive_i15.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i16">
 <div class="dataset-title">i16</div>
 <iframe src="./barre_interattive_i16.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i17">
 <div class="dataset-title">i17</div>
 <iframe src="./barre_interattive_i17.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i18">
 <div class="dataset-title">i18</div>
 <iframe src="./barre_interattive_i18.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i19">
 <div class="dataset-title">i19</div>
 <iframe src="./barre_interattive_i19.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i20">
 <div class="dataset-title">i20</div>
 <iframe src="./barre_interattive_i20.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i21">
 <div class="dataset-title">i21</div>
 <iframe src="./barre_interattive_i21.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i22">
 <div class="dataset-title">i22</div>
 <iframe src="./barre_interattive_i22.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i23">
 <div class="dataset-title">i23</div>
 <iframe src="./barre_interattive_i23.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i24">
 <div class="dataset-title">i24</div>
 <iframe src="./barre_interattive_i24.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i25">
 <div class="dataset-title">i25</div>
 <iframe src="./barre_interattive_i25.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i26">
 <div class="dataset-title">i26</div>
 <iframe src="./barre_interattive_i26.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i27">
 <div class="dataset-title">i27</div>
 <iframe src="./barre_interattive_i27.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i28">
 <div class="dataset-title">i28</div>
 <iframe src="./barre_interattive_i28.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i29">
 <div class="dataset-title">i29</div>
 <iframe src="./barre_interattive_i29.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="i30">
 <div class="dataset-title">i30</div>
 <iframe src="./barre_interattive_i30.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m01">
 <div class="dataset-title">m01</div>
 <iframe src="./barre_interattive_m01.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m02">
 <div class="dataset-title">m02</div>
 <iframe src="./barre_interattive_m02.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m03">
 <div class="dataset-title">m03</div>
 <iframe src="./barre_interattive_m03.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m04">
 <div class="dataset-title">m04</div>
 <iframe src="./barre_interattive_m04.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m05">
 <div class="dataset-title">m05</div>
 <iframe src="./barre_interattive_m05.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m06">
 <div class="dataset-title">m06</div>
 <iframe src="./barre_interattive_m06.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m07">
 <div class="dataset-title">m07</div>
 <iframe src="./barre_interattive_m07.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m08">
 <div class="dataset-title">m08</div>
 <iframe src="./barre_interattive_m08.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m09">
 <div class="dataset-title">m09</div>
 <iframe src="./barre_interattive_m09.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m10">
 <div class="dataset-title">m10</div>
 <iframe src="./barre_interattive_m10.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m11">
 <div class="dataset-title">m11</div>
 <iframe src="./barre_interattive_m11.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m12">
 <div class="dataset-title">m12</div>
 <iframe src="./barre_interattive_m12.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m13">
 <div class="dataset-title">m13</div>
 <iframe src="./barre_interattive_m13.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m14">
 <div class="dataset-title">m14</div>
 <iframe src="./barre_interattive_m14.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m15">
 <div class="dataset-title">m15</div>
 <iframe src="./barre_interattive_m15.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m16">
 <div class="dataset-title">m16</div>
 <iframe src="./barre_interattive_m16.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m17">
 <div class="dataset-title">m17</div>
 <iframe src="./barre_interattive_m17.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m18">
 <div class="dataset-title">m18</div>
 <iframe src="./barre_interattive_m18.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m19">
 <div class="dataset-title">m19</div>
 <iframe src="./barre_interattive_m19.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m20">
 <div class="dataset-title">m20</div>
 <iframe src="./barre_interattive_m20.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m21">
 <div class="dataset-title">m21</div>
 <iframe src="./barre_interattive_m21.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m22">
 <div class="dataset-title">m22</div>
 <iframe src="./barre_interattive_m22.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m23">
 <div class="dataset-title">m23</div>
 <iframe src="./barre_interattive_m23.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m24">
 <div class="dataset-title">m24</div>
 <iframe src="./barre_interattive_m24.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m25">
 <div class="dataset-title">m25</div>
 <iframe src="./barre_interattive_m25.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m26">
 <div class="dataset-title">m26</div>
 <iframe src="./barre_interattive_m26.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m27">
 <div class="dataset-title">m27</div>
 <iframe src="./barre_interattive_m27.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m28">
 <div class="dataset-title">m28</div>
 <iframe src="./barre_interattive_m28.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m29">
 <div class="dataset-title">m29</div>
 <iframe src="./barre_interattive_m29.html?v=1"></iframe>
+</div>
 
+<div class="instance-block all-visible" data-instance="m30">
 <div class="dataset-title">m30</div>
 <iframe src="./barre_interattive_m30.html?v=1"></iframe>
+</div>
+
+        </div>
 
     </div>
 
